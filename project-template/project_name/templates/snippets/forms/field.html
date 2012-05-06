@@ -1,0 +1,13 @@
+{% if not field.is_hidden %}
+  <li id="field_{{ field.html_name }}" class="{% if field.field.widget.attrs.cols %}textarea{% endif %} {% if field.field.widget.input_type %}{{ field.field.widget.input_type }}{% else %}unknown{% endif %}">
+    <label for="id_{{ field.html_name }}" class="{% if field.errors %} errors{% endif %}{% if field.field.required %} required{% endif %}">
+      {{ field.label|safe }}
+      {% if field.field.required %}<abbr title="Required">*</abbr>{% endif %}
+    </label>
+    {{ field }}
+    {% if field.help_text %}<em class="help_text">{{ field.help_text|safe }}</em>{% endif %}
+    {% if field.errors %}{{ field.errors }}{% endif %}
+  </li>
+{% else %}
+  {{ field }}
+{% endif %}

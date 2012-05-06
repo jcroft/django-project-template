@@ -1,0 +1,72 @@
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block full-title %}{% block title %}{% endblock %} &ndash; {{ project_name }}{% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}assets/img/core/apple-touch-icon.png">
+
+    {% block stylesheets %}
+      {% compress css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}assets/css/base.sass" type="text/x-sass" />
+      {% endcompress %}
+    {% endblock %}
+    {% block extra-stylesheets %}{% endblock %}
+    {% block remote-scripts %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    {% endblock %}
+    {% block local-scripts %}
+      {% compress js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}assets/js/base.js"></script>
+      {% endcompress %}
+    {% endblock %}
+    {% block extra-scripts %}{% endblock %}
+    
+    <link rel="shortcut icon" href="{{ STATIC_URL }}/assets/img/core/favicon.png">
+    
+    {% block extra-head %}{% endblock %}
+    
+  </head>
+  
+  <body class="{% block body-class %}{% endblock %}" onload="{% block body-onload %}{% endblock %}">
+
+    <header id="header">
+      {% block header %}
+        <h1><a href="/">{{ project_name }}</a></h1>
+        <nav>
+          <ul>
+            <li><a href="#">Navigation</a></li>
+          </ul>
+        </nav>
+      {% endblock %}
+    </div>
+
+    {% block messages %}
+      {% include "snippets/messages/messages_list.html" %}
+    {% endblock %}
+
+    <div id="content">
+
+      <div id="primary">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div id="secondary">
+        {% block secondary-content %}{% endblock %}
+      </div>
+
+    </div>
+
+    <footer id="footer">
+      <p>This site Copyright &copy; {% now:'Y' %} Third Avenue Design, Inc. All Rights Reserved.</p>
+    </div>
+
+  </body>
+
+</html>

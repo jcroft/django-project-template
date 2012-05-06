@@ -1,0 +1,29 @@
+# Core
+Django==1.4
+Fabric==1.2.2
+South==0.7.4
+pytz==2012b
+PIL
+
+# Development aides
+django-debug-toolbar==0.8.5
+
+# Caching
+python-memcached==1.47
+
+# Database
+MySQL-python==1.2.3
+
+# Storage
+django-cumulus==1.0.3
+python-cloudfiles
+
+# Templates
+Markdown==2.0.3
+smartypants==1.6.0.3
+typogrify==1.0
+sorl-thumbnail==11.05.2
+-e git://github.com/jcroft/jeffcroft-django-utils.git#egg=jeffcroft
+
+# Static files
+django-compressor==1.1.2

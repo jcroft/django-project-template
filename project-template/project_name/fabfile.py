@@ -8,28 +8,28 @@ PROJECT_NAME                = '{{ project_name }}'
 PROJECT_APP_REPO            = 'git@github.com:jcroft/{{ project_name }}.git'
 PROJECT_CSS_FRAMEWORK_REPO  = 'git@github.com:jcroft/jeffcroft-css-framework-v2.git'
 
-# Environments  - add as many as necessary.
+# Deployment environments  - add as many as necessary.
 def production():
   config = {
-    'name':             '',
-    'host':             '',
-    'web_hostname':     '',
-    'username':         '',
-    'password':         '',
-    'virtualenv':       '',
-    'virtualenvs_dir':  '', 
+    'name':             'production',           # A name for this environment
+    'host':             '',                     # The host we'll be SSHing to
+    'web_hostname':     '',                     # The domain name for this web site/app
+    'username':         '',                     # Your username on the SSH host
+    'password':         '',                     # Your password on the SSH host
+    'virtualenv':       '{{ project_name }}',   # The name for this virtualenv
+    'virtualenvs_dir':  '',                     # The path to your virtualenvs directory
   }
   environment(config)
 
 
 def staging():
   config = {
-    'name':             '',
+    'name':             'staging',
     'host':             '',
     'web_hostname':     '',
     'username':         '',
     'password':         '',
-    'virtualenv':       '',
+    'virtualenv':       '{{ project_name }}',
     'virtualenvs_dir':  '',
   }
   environment(config)
@@ -39,7 +39,7 @@ def local():
   config = {
     'name':             'local',
     'host':             'localhost',
-    'web_hostname':     '',
+    'web_hostname':     '',                       # Leave blank for local environment, we'll just use Django's built-in server
     'username':         '',
     'password':         '',
     'virtualenv':       '',

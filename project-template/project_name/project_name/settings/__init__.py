@@ -24,7 +24,7 @@ LANGUAGE_CODE = 'en-us'
 
 # Site
 SITE_ID = 1
-SECRET_KEY = 'DO NOT LEAVE THIS BLANK'
+SECRET_KEY = '{{ secret_key }}'
 
 
 # Internationalization/Localization

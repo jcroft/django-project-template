@@ -3,8 +3,8 @@ import site
 import sys
 
 # Configure the paths for our virtualenv.
-site.addsitedir('/home/jcroft/Development/Python/_VirtualEnvs/podcasts/lib/python2.7/site-packages')
-sys.path.insert(0, '/home/jcroft/Development/Python/_VirtualEnvs/podcasts/lib/python2.7/site-packages')
+site.addsitedir('/home/jcroft/Development/Python/_VirtualEnvs/{{ project_name }}/lib/python2.7/site-packages')
+sys.path.insert(0, '/home/jcroft/Development/Python/_VirtualEnvs/{{ project_name }}/lib/python2.7/site-packages')
 sys.path.insert(0, '/home/jcroft/Development/Python/_VirtualEnvs/{{ project_name }}/{{ project_name }}')
 
 # Configure the DJANGO_SETTINGS_MODULE
